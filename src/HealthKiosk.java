@@ -126,12 +126,14 @@ public class HealthKiosk {
          }
          System.out.println("Enter your first name");
          String first_name=input.next();
-         char first_Letter=first_name.charAt(0);
-        System.out.println("the firsletter of your name is"+first_Letter);
-        char baseCode=(char)("A"+first_Letter-"A"+2)%26);
-        System.out.println("the base code is "+baseCode);
-         }else{
-             System.out.println("Invalid first name,name cannot be empty");
+         if(first_name.isEmpty()) {
+             System.out.println("Invalid first name");
+         }else if(ID.length()<2) {
+             System.out.println("Invalid first name");
+         }else {
+             char base = Character.toUpperCase(first_name.charAt(0));
+             char shifted = (char) ('A' + ((base - 'A' + 2) % 26));
+
          }
          //last two of ID
          if (ID.length()>=2) {
